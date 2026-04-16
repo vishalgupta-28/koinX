@@ -1,0 +1,110 @@
+.card {
+  flex: 1;
+  border-radius: 16px;
+  padding: 24px;
+  min-width: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-dark {
+  background: var(--Gray-01-Surface, rgba(255, 255, 255, 1));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #3c9aff 2.5%, #0066fe 100.05%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.card-title-dark {
+  color: #0f172a;
+}
+
+.card-title-light {
+  color: #fff;
+}
+
+.card-divider {
+  height: 1px;
+  margin: 16px 0;
+}
+
+.card-divider-dark {
+  background: #e2e8f0;
+}
+
+.card-divider-light {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gain-section {
+  margin-bottom: 8px;
+}
+
+.gain-label {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.gain-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.gain-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.gain-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gain-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  text-align: right;
+}
+
+.gain-table-header span:first-child {
+  text-align: left;
+}
+
+.gain-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.gain-table-row span {
+  text-align: right;
+  font-size: 14px;
+}
+
+.gain-table-row span:first-child {
+  text-align: left;
+}
+
+.realised-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
