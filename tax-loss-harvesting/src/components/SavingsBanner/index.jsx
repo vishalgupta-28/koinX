@@ -11,27 +11,18 @@ const SavingsBanner = ({ savings }) => (
       marginTop: 10,
       display: 'flex',
       alignItems: 'center',
-      gap: 8,
+      gap: 6,
       flexWrap: 'wrap'
     }}
   >
     <span
       style={{
         fontSize: 13,
-        fontWeight: 700,
-        color: '#FDE68A'
-      }}
-    >
-      Congratulations!
-    </span>
-    <span
-      style={{
-        fontSize: 14,
         fontWeight: 600,
-        color: '#FFFFFF'
+        color: '#dbeafe'
       }}
     >
-      You are going to save upto {formatCurrency(savings)}
+      Congrats: You are going to save upto {formatCurrency(savings)}
     </span>
   </div>
 )

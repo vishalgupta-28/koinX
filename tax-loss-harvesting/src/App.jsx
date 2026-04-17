@@ -25,13 +25,26 @@ const AppContent = ({ capitalGains, cgLoading, cgError, holdings, hLoading, hErr
   const { postHarvestGains } = useHarvesting()
   const [isNotesOpen, setIsNotesOpen] = useState(false)
   const [showHowItWorks, setShowHowItWorks] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
 
   const preRealised = capitalGains ? calculateRealisedGain(capitalGains.stcg, capitalGains.ltcg) : 0
 
   return (
-    <div className="page">
+    <div className={`page ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
       <nav className="navbar">
         <img src="/logo.svg" alt="KoinX" className="brand-logo" />
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={() => setIsDarkMode((prev) => !prev)}
+          aria-label="Toggle light and dark mode"
+          aria-pressed={isDarkMode}
+        >
+          <span className="theme-toggle-lines" aria-hidden="true">
+            <span className="theme-line theme-line-top" />
+            <span className="theme-line theme-line-bottom" />
+          </span>
+        </button>
       </nav>
 
       <main className="main">
@@ -54,7 +67,10 @@ const AppContent = ({ capitalGains, cgLoading, cgError, holdings, hLoading, hErr
               </button>
               {showHowItWorks && (
                 <div className="how-tooltip" role="tooltip">
-                  Lorem ipsum dolor sit amet consectetur. Eiusmod id posuere nibh dui consectetur.
+                  <span className="how-tooltip-text">
+                    Lorem ipsum dolor sit amet consectetur. Euismod id posuere nibh semper mattis
+                    scelerisque tellus. Vel mattis diam duis morbi tellus dui consectetur.
+                  </span>{' '}
                   <button type="button" className="know-more-btn">
                     Know More
                   </button>
@@ -95,11 +111,17 @@ const AppContent = ({ capitalGains, cgLoading, cgError, holdings, hLoading, hErr
             </>
           ) : capitalGains ? (
             <>
-              <CapitalGainsCard title="Pre Harvesting" gains={capitalGains} isDark={true} />
+              <CapitalGainsCard
+                title="Pre Harvesting"
+                gains={capitalGains}
+                isDark={true}
+                isPageDark={isDarkMode}
+              />
               <CapitalGainsCard
                 title="After Harvesting"
                 gains={postHarvestGains}
                 isDark={false}
+                isPageDark={isDarkMode}
                 preRealisedGains={preRealised}
               />
             </>

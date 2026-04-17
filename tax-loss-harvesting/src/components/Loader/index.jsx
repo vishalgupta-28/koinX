@@ -33,7 +33,7 @@ export const TableSkeleton = () => (
         key={i}
         style={{
           height: 64,
-          background: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)',
+          background: 'linear-gradient(90deg, #111b31 25%, #1a2742 50%, #111b31 75%)',
           backgroundSize: '200% 100%',
           animation: 'shimmer 1.5s infinite',
           borderRadius: 8,

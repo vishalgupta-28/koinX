@@ -8,10 +8,13 @@ const ValueWithHover = ({ value }) => (
   </span>
 )
 
-const GainRow = ({ isDark, stProfits, stLosses, stNet, ltProfits, ltLosses, ltNet }) => {
-  const labelColor = isDark ? '#475569' : 'rgba(255,255,255,0.85)'
-  const valueColor = isDark ? '#111827' : '#ffffff'
-  const emphasisColor = isDark ? '#0f172a' : '#ffffff'
+const GainRow = ({ isDark, isPageDark, stProfits, stLosses, stNet, ltProfits, ltLosses, ltNet }) => {
+  const preCardLabelColor = isPageDark ? 'rgba(226, 232, 240, 0.88)' : '#475569'
+  const preCardValueColor = isPageDark ? '#ffffff' : '#111827'
+  const preCardEmphasisColor = isPageDark ? '#ffffff' : '#0f172a'
+  const labelColor = isDark ? preCardLabelColor : 'rgba(241, 245, 249, 0.9)'
+  const valueColor = isDark ? preCardValueColor : '#ffffff'
+  const emphasisColor = isDark ? preCardEmphasisColor : '#ffffff'
 
   return (
     <div className="gain-table">
@@ -43,7 +46,7 @@ const GainRow = ({ isDark, stProfits, stLosses, stNet, ltProfits, ltLosses, ltNe
   )
 }
 
-const CapitalGainsCard = ({ title, gains, isDark = false, preRealisedGains = null }) => {
+const CapitalGainsCard = ({ title, gains, isDark = false, isPageDark = true, preRealisedGains = null }) => {
   const stNet = calculateNetGain(gains.stcg.profits, gains.stcg.losses)
   const ltNet = calculateNetGain(gains.ltcg.profits, gains.ltcg.losses)
   const realised = calculateRealisedGain(gains.stcg, gains.ltcg)
@@ -55,6 +58,7 @@ const CapitalGainsCard = ({ title, gains, isDark = false, preRealisedGains = nul
       <h3 className={`card-title ${isDark ? 'card-title-dark' : 'card-title-light'}`}>{title}</h3>
       <GainRow
         isDark={isDark}
+        isPageDark={isPageDark}
         stProfits={gains.stcg.profits}
         stLosses={gains.stcg.losses}
         stNet={stNet}
@@ -66,7 +70,11 @@ const CapitalGainsCard = ({ title, gains, isDark = false, preRealisedGains = nul
       <div className="realised-row">
         <span
           style={{
-            color: isDark ? '#1e293b' : 'rgba(255,255,255,0.9)',
+            color: isDark
+              ? isPageDark
+                ? 'rgba(241, 245, 249, 0.92)'
+                : '#1e293b'
+              : 'rgba(241, 245, 249, 0.95)',
             fontSize: 14
           }}
         >
@@ -74,7 +82,7 @@ const CapitalGainsCard = ({ title, gains, isDark = false, preRealisedGains = nul
         </span>
         <span
           style={{
-            color: isDark ? '#111827' : '#fff',
+            color: isDark ? (isPageDark ? '#fff' : '#111827') : '#fff',
             fontSize: 24,
             fontWeight: 700
           }}

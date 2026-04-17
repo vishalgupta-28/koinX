@@ -39,6 +39,7 @@ const HoldingsTable = ({ holdings }) => {
 
   return (
     <div className="table-wrapper">
+      <h2 className="table-title">Holdings</h2>
       <div className="table-scroll">
         <table className="holdings-table">
           <thead>
