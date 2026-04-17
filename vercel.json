@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "create-react-app",
+  "installCommand": "cd tax-loss-harvesting && npm install",
+  "buildCommand": "cd tax-loss-harvesting && npm run build",
+  "outputDirectory": "tax-loss-harvesting/build"
+}
